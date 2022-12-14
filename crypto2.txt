@@ -1,0 +1,344 @@
+contract Contract {
+    function main() {
+        memory[0x40:0x60] = 0x80;
+        var var0 = msg.value;
+    
+        if (var0) { revert(memory[0x00:0x00]); }
+    
+        if (msg.data.length < 0x04) { revert(memory[0x00:0x00]); }
+    
+        var0 = msg.data[0x00:0x20] >> 0xe0;
+    
+        if (var0 == 0x2bda85c4) {
+            // Dispatch table entry for 0x2bda85c4 (unknown)
+            var var1 = 0x006f;
+            var var2 = 0x006a;
+            var var3 = msg.data.length;
+            var var4 = 0x04;
+            var2, var3 = func_03CC(var3, var4);
+            var1 = func_006A(var2, var3);
+        
+        label_006F:
+            var temp0 = var1;
+            var1 = 0x007c;
+            var2 = temp0;
+            var3 = memory[0x40:0x60];
+            var1 = func_048E(var2, var3);
+        
+        label_007C:
+            var temp1 = memory[0x40:0x60];
+            return memory[temp1:temp1 + var1 - temp1];
+        } else if (var0 == 0x715018a6) {
+            // Dispatch table entry for renounceOwnership()
+            var1 = 0x008d;
+            renounceOwnership();
+            stop();
+        } else if (var0 == 0x8da5cb5b) {
+            // Dispatch table entry for owner()
+            var temp2 = memory[0x40:0x60];
+            memory[temp2:temp2 + 0x20] = storage[0x00] & (0x01 << 0xa0) - 0x01;
+            var1 = temp2 + 0x20;
+            goto label_007C;
+        } else if (var0 == 0xf2fde38b) {
+            // Dispatch table entry for transferOwnership(address)
+            var1 = 0x008d;
+            var2 = 0x00b8;
+            var3 = msg.data.length;
+            var4 = 0x04;
+            var2 = func_04DC(var3, var4);
+            func_00B8(var2);
+            stop();
+        } else if (var0 == 0xf9633930) {
+            // Dispatch table entry for getFlag()
+            var1 = 0x006f;
+            var1 = getFlag();
+            goto label_006F;
+        } else { revert(memory[0x00:0x00]); }
+    }
+    
+    function func_006A(var arg0, var arg1) returns (var r0) {
+        r0 = func_00C5(arg0, arg1);
+        // Error: Could not resolve method call return address!
+    }
+    
+    function func_00B8(var arg0) {
+        if (msg.sender != storage[0x00] & (0x01 << 0xa0) - 0x01) {
+            var temp2 = memory[0x40:0x60];
+            memory[temp2:temp2 + 0x20] = 0x461bcd << 0xe5;
+            memory[temp2 + 0x04:temp2 + 0x04 + 0x20] = 0x20;
+            memory[temp2 + 0x24:temp2 + 0x24 + 0x20] = 0x20;
+            memory[temp2 + 0x44:temp2 + 0x44 + 0x20] = 0x4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572;
+            var0 = temp2 + 0x64;
+            goto label_0226;
+        } else if (arg0 & (0x01 << 0xa0) - 0x01) {
+            var var0 = 0x0303;
+            var var1 = arg0;
+            func_0349(var1);
+            return;
+        } else {
+            var temp0 = memory[0x40:0x60];
+            memory[temp0:temp0 + 0x20] = 0x461bcd << 0xe5;
+            memory[temp0 + 0x04:temp0 + 0x04 + 0x20] = 0x20;
+            memory[temp0 + 0x24:temp0 + 0x24 + 0x20] = 0x26;
+            memory[temp0 + 0x44:temp0 + 0x44 + 0x20] = 0x4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061;
+            memory[temp0 + 0x64:temp0 + 0x64 + 0x20] = 0x646472657373 << 0xd0;
+            var0 = temp0 + 0x84;
+        
+        label_0226:
+            var temp1 = memory[0x40:0x60];
+            revert(memory[temp1:temp1 + var0 - temp1]);
+        }
+    }
+    
+    function func_00C5(var arg0, var arg1) returns (var r0) {
+        var temp0 = memory[0x40:0x60];
+        memory[temp0 + 0x20:temp0 + 0x20 + 0x20] = arg1 & ~((0x01 << 0xe0) - 0x01);
+        var temp1 = memory[0x40:0x60];
+        memory[temp1:temp1 + 0x20] = temp0 - temp1 + 0x04;
+        memory[0x40:0x60] = temp0 + 0x24;
+        var var0 = 0x60;
+        var var2 = temp1;
+        var var3 = memory[arg0:arg0 + 0x20];
+        var var1 = arg0;
+        var var4 = 0x00;
+        var var5 = var3;
+    
+        if (var5 <= 0xffffffffffffffff) {
+            var temp2 = memory[0x40:0x60];
+            var temp3 = var5;
+            var var6 = temp3;
+            var5 = temp2;
+            memory[var5:var5 + 0x20] = var6;
+            memory[0x40:0x60] = var5 + (var6 + 0x1f & ~0x1f) + 0x20;
+        
+            if (!var6) {
+                var4 = var5;
+                var5 = 0x00;
+            
+                if (var5 >= var3) {
+                label_01C5:
+                    return var4;
+                } else {
+                label_0146:
+                    var6 = var2;
+                    var var7 = 0x0151;
+                    var var8 = 0x04;
+                    var var9 = var5;
+                    var7 = func_050C(var8, var9);
+                
+                    if (var7 < memory[var6:var6 + 0x20]) {
+                        var6 = (memory[var7 + 0x20 + var6:var7 + 0x20 + var6 + 0x20] >> 0xf8) << 0xf8;
+                        var7 = var1;
+                        var8 = var5;
+                    
+                        if (var8 < memory[var7:var7 + 0x20]) {
+                            var6 = ((memory[var8 + 0x20 + var7:var8 + 0x20 + var7 + 0x20] >> 0xf8) << 0xf8) ~ var6;
+                            var7 = var4;
+                            var8 = var5;
+                        
+                            if (var8 < memory[var7:var7 + 0x20]) {
+                                memory[var8 + 0x20 + var7:var8 + 0x20 + var7 + 0x01] = byte(var6 & ~((0x01 << 0xf8) - 0x01), 0x00);
+                                var6 = var5;
+                                var7 = 0x01bd;
+                                var8 = var6;
+                                var7 = func_0544(var8);
+                                var5 = var7;
+                            
+                                if (var5 >= var3) { goto label_01C5; }
+                                else { goto label_0146; }
+                            } else {
+                                var9 = 0x019c;
+                            
+                            label_052E:
+                                memory[0x00:0x20] = 0x4e487b71 << 0xe0;
+                                memory[0x04:0x24] = 0x32;
+                                revert(memory[0x00:0x24]);
+                            }
+                        } else {
+                            var9 = 0x017e;
+                            goto label_052E;
+                        }
+                    } else {
+                        var8 = 0x0161;
+                        goto label_052E;
+                    }
+                }
+            } else {
+                var temp4 = var6;
+                memory[var5 + 0x20:var5 + 0x20 + temp4] = msg.data[msg.data.length:msg.data.length + temp4];
+                var4 = var5;
+                var5 = 0x00;
+            
+                if (var5 >= var3) { goto label_01C5; }
+                else { goto label_0146; }
+            }
+        } else {
+            var6 = 0x010d;
+            memory[0x00:0x20] = 0x4e487b71 << 0xe0;
+            memory[0x04:0x24] = 0x41;
+            revert(memory[0x00:0x24]);
+        }
+    }
+    
+    function renounceOwnership() {
+        if (msg.sender == storage[0x00] & (0x01 << 0xa0) - 0x01) {
+            var var0 = 0x0239;
+            var var1 = 0x00;
+            func_0349(var1);
+            return;
+        } else {
+            var temp0 = memory[0x40:0x60];
+            memory[temp0:temp0 + 0x20] = 0x461bcd << 0xe5;
+            memory[temp0 + 0x04:temp0 + 0x04 + 0x20] = 0x20;
+            memory[temp0 + 0x24:temp0 + 0x24 + 0x20] = 0x20;
+            memory[temp0 + 0x44:temp0 + 0x44 + 0x20] = 0x4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572;
+            var temp1 = memory[0x40:0x60];
+            revert(memory[temp1:temp1 + (temp0 + 0x64) - temp1]);
+        }
+    }
+    
+    function getFlag() returns (var r0) {
+        var var0 = 0x60;
+        var var1 = 0x0344;
+        var temp0 = memory[0x40:0x60];
+        var var2 = temp0;
+        memory[0x40:0x60] = var2 + 0x40;
+        memory[var2:var2 + 0x20] = 0x13;
+        memory[var2 + 0x20:var2 + 0x20 + 0x20] = 0x4f54554642492c414d4e424853445e315e3533 << 0x68;
+        var var3 = 0x01010103 << 0xe0;
+        return func_00C5(var2, var3);
+    }
+    
+    function func_0349(var arg0) {
+        var temp0 = storage[0x00];
+        var temp1 = (0x01 << 0xa0) - 0x01;
+        var temp2 = temp1 & arg0;
+        storage[0x00] = temp2 | (temp0 & ~((0x01 << 0xa0) - 0x01));
+        log(memory[memory[0x40:0x60]:memory[0x40:0x60] + 0x00], [0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0, storage[0x00] & (0x01 << 0xa0) - 0x01, stack[-1] & (0x01 << 0xa0) - 0x01]);
+    }
+    
+    function func_03AF(var arg0) returns (var r0) {
+        var temp0 = msg.data[arg0:arg0 + 0x20];
+        var var0 = temp0;
+    
+        if (var0 == var0 & ~((0x01 << 0xe0) - 0x01)) { return var0; }
+        else { revert(memory[0x00:0x00]); }
+    }
+    
+    function func_03CC(var arg0, var arg1) returns (var r0, var arg0) {
+        var var0 = 0x00;
+        var var1 = var0;
+    
+        if (arg0 - arg1 i< 0x40) { revert(memory[0x00:0x00]); }
+    
+        var var2 = msg.data[arg1:arg1 + 0x20];
+        var var3 = 0xffffffffffffffff;
+    
+        if (var2 > var3) { revert(memory[0x00:0x00]); }
+    
+        var temp0 = arg1 + var2;
+        var2 = temp0;
+    
+        if (var2 + 0x1f i>= arg0) { revert(memory[0x00:0x00]); }
+    
+        var var4 = msg.data[var2:var2 + 0x20];
+    
+        if (var4 <= var3) {
+            var temp1 = memory[0x40:0x60];
+            var temp2 = ~0x1f;
+            var temp3 = temp1 + ((temp2 & var4 + 0x1f) + 0x3f & temp2);
+            var var6 = temp1;
+            var var5 = temp3;
+        
+            if (!((var5 < var6) | (var5 > var3))) {
+                memory[0x40:0x60] = var5;
+                var temp4 = var4;
+                memory[var6:var6 + 0x20] = temp4;
+            
+                if (var2 + temp4 + 0x20 > arg0) { revert(memory[0x00:0x00]); }
+            
+                var temp5 = var4;
+                var temp6 = var6;
+                memory[temp6 + 0x20:temp6 + 0x20 + temp5] = msg.data[var2 + 0x20:var2 + 0x20 + temp5];
+                memory[temp6 + temp5 + 0x20:temp6 + temp5 + 0x20 + 0x20] = 0x00;
+                var0 = temp6;
+                var2 = 0x0485;
+                var3 = arg1 + 0x20;
+                var2 = func_03AF(var3);
+                arg0 = var2;
+                r0 = var0;
+                return r0, arg0;
+            } else {
+                var var7 = 0x0445;
+            
+            label_0399:
+                memory[0x00:0x20] = 0x4e487b71 << 0xe0;
+                memory[0x04:0x24] = 0x41;
+                revert(memory[0x00:0x24]);
+            }
+        } else {
+            var5 = 0x041d;
+            goto label_0399;
+        }
+    }
+    
+    function func_048E(var arg0, var arg1) returns (var r0) {
+        var var0 = 0x00;
+        var var1 = 0x20;
+        var temp0 = arg1;
+        memory[temp0:temp0 + 0x20] = var1;
+        var temp1 = memory[arg0:arg0 + 0x20];
+        var var2 = temp1;
+        memory[temp0 + var1:temp0 + var1 + 0x20] = var2;
+        var var3 = 0x00;
+    
+        if (var3 >= var2) {
+        label_04BB:
+            var temp2 = var2;
+            var temp3 = arg1;
+            memory[temp3 + temp2 + 0x40:temp3 + temp2 + 0x40 + 0x20] = 0x00;
+            return temp3 + (temp2 + 0x1f & ~0x1f) + 0x40;
+        } else {
+        label_04A8:
+            var temp4 = var3;
+            var temp5 = var1;
+            memory[temp4 + arg1 + 0x40:temp4 + arg1 + 0x40 + 0x20] = memory[temp5 + temp4 + arg0:temp5 + temp4 + arg0 + 0x20];
+            var3 = temp5 + temp4;
+        
+            if (var3 >= var2) { goto label_04BB; }
+            else { goto label_04A8; }
+        }
+    }
+    
+    function func_04DC(var arg0, var arg1) returns (var r0) {
+        var var0 = 0x00;
+    
+        if (arg0 - arg1 i< 0x20) { revert(memory[0x00:0x00]); }
+    
+        var temp0 = msg.data[arg1:arg1 + 0x20];
+        var var1 = temp0;
+    
+        if (var1 == var1 & (0x01 << 0xa0) - 0x01) { return var1; }
+        else { revert(memory[0x00:0x00]); }
+    }
+    
+    function func_050C(var arg0, var arg1) returns (var r0) {
+        var var0 = 0x00;
+    
+        if (arg0) { return arg1 % arg0; }
+    
+        memory[0x00:0x20] = 0x4e487b71 << 0xe0;
+        memory[0x04:0x24] = 0x12;
+        revert(memory[0x00:0x24]);
+    }
+    
+    function func_0544(var arg0) returns (var r0) {
+        var var0 = 0x00;
+    
+        if (arg0 + 0x01) { return arg0 + 0x01; }
+    
+        memory[0x00:0x20] = 0x4e487b71 << 0xe0;
+        memory[0x04:0x24] = 0x11;
+        revert(memory[0x00:0x24]);
+    }
+}
